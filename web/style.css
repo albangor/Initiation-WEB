@@ -1,0 +1,127 @@
+/* style.css
+ * TP2 CSS
+ * Alban GORRIA
+ * 23/09/2026
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+}
+
+header {
+    background-color: grey;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    line-height: 1.2em;
+    margin: 10px;
+    padding: 10px;
+}
+
+footer {
+    background-color: grey;
+    text-align: center;
+    color: white;
+    margin: 10px;
+    padding: 5px;
+}
+section {
+    margin: 10px;
+}
+
+article {
+    margin: 10px;
+    padding: 10px;
+    border: 2px dotted grey;
+}
+
+p {
+     margin: 10px; 
+}
+
+h1 {
+    text-align: center;
+    color: red;
+    font-size: 2em;
+    text-transform: uppercase;
+    
+}
+
+h2 {
+    margin: 10px;
+    background-color: red;
+    border-left: 50px solid black;
+    text-transform: capitalize;
+    padding: 5px;
+}
+
+
+#info {
+
+    text-align: center;
+    margin: 10px;
+    padding: 10px;  
+    color: white;
+    background-color: brown;
+    width: 600px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    line-height: 2em;
+  
+}
+
+.documentation {
+    background-color: green;
+    color:white;
+    margin:10px;
+    padding: 5px;
+    
+}
+.documentation a {
+    text-decoration: none;
+    background-color: darkgreen;
+    color: greenyellow;
+    margin: 5px;
+
+}
+.documentation a:hover {
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+.code{
+    font-family: courier;
+    background-color: verylightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.code pre{
+    padding: 10px;
+    margin: 10px;
+}
+
+table{
+    width: 100%;
+    
+    padding: auto;
+    line-height: 2em;
+    th {
+        background-color: darkblue;
+        color: white;
+        height: 3em;
+    }
+    td {
+        border: 1px solid black;
+        margin:10px;
+        text-align: center;
+    }
+    tr:nth-child(even) {background-color:lightblue;}
+    tr:last-child {color:blue};
+    
+}
