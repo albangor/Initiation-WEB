@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma liste de tâches</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body x-data="todoApp()" x-init="init()" :class="{ dark: darkMode, dyslexie: dyslexie }" x-cloak>
+
+    <div class="app-container">
+        <h1>Ma liste de tâches</h1>
+
+        <section>
+            <h2>Préférences</h2>
+            <div class="preferences-buttons">
+                <button type="button" class="btn-pref" @click="basculerTheme()">
+                    <span x-text="darkMode ? '☀️ Mode clair' : '🌙 Mode sombre'"></span>
+                </button>
+
+                <button type="button" class="btn-pref" @click="basculerDyslexie()">
+                    📖 Lecture facilitée
+                </button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ajouter une tâche</h2>
+            <form @submit.prevent="ajouterTache()" class="add-todo-form">
+                <input type="text" x-model="nouvelleTache" placeholder="Nouvelle tâche..." required>
+                <button type="submit" class="btn-action">Ajouter</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Statistiques</h2>
+            <div class="stats-container">
+                <p>Total : <strong x-text="totalTaches()"></strong></p>
+                <p>Terminées : <strong x-text="tachesTerminees()"></strong></p>
+                <p>Restantes : <strong x-text="tachesRestantes()"></strong></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Mes tâches</h2>
+            
+            <p x-show="taches.length === 0" class="empty-message">Aucune tâche pour le moment.</p>
+
+            <ul x-show="taches.length > 0" class="todo-list">
+                <template x-for="tache in taches" :key="tache.id">
+                    <li class="todo-item">
+                        <label class="todo-label">
+                            <input type="checkbox" x-model="tache.terminee" @change="sauvegarderTaches()">
+                            <span :class="{ 'terminee': tache.terminee }" x-text="tache.texte"></span>
+                        </label>
+                        <button type="button" class="btn-delete" @click="supprimerTache(tache.id)">Supprimer</button>
+                    </li>
+                </template>
+            </ul>
+        </section>
+    </div>
+
+</body>
+</html>
